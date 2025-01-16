@@ -1,32 +1,37 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Task } from 'src/app/models/task.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-
-  tickets: any[] = [];
+  tasks: Task[] = [];
   currentUser: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private authService: AuthService,
+    private sharedService: SharedService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    this.fetchTickets();
+    this.currentUser = this.authService.getCurrentUser();
+    this.sharedService.getAllTasks().subscribe(
+      (tasks) => {
+        this.tasks = tasks;
+      },
+      (error) => {
+        console.error('Error loading tasks', error);
+      }
+    );
   }
 
-  fetchTickets() {
-    this.http.get<any[]>('http://localhost:3000/tasks').subscribe(tickets => {
-      this.tickets = tickets;
-    });
-  }
-
-  assignTicket(ticketId: number, user: string) {
-    this.http.put(`http://localhost:3000/tasks/${ticketId}`, { assignedTo: user }).subscribe(() => {
-      this.fetchTickets(); // Refresh tickets list
-    });
+  onCreateNewTask(): void {
+    this.router.navigate(['/create-task']);
   }
 }

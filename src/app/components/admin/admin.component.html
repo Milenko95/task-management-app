@@ -1,7 +1,5 @@
 <div>
   <h2>Admin Dashboard</h2>
-  <div *ngFor="let ticket of tickets">
-    <h3>{{ ticket.title }}</h3>
-    <p>{{ ticket.description }}</p>
-  </div>
+  <button (click)="onCreateNewTask()">New Task</button>
+  <task-table [tasks]="tasks"></task-table>
 </div>

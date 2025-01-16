@@ -35,8 +35,8 @@ export class AuthService {
               throw new Error('invalidRole');
             }
 
-            // mock token
-            const token = 'fake-token-for-testing';
+            // mock token - username
+            const token = user.id;
 
             // store user information in localStorage
             localStorage.setItem('token', token);
@@ -62,6 +62,10 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
+  }
+
+  getCurrentUser(): string | null {
+    return localStorage.getItem('token');
   }
 
   getRole(): string | null {

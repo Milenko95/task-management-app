@@ -24,7 +24,6 @@ export class AuthGuard implements CanActivate {
     const requiredRoles = route.data['roles'];
     const userRole = this.authService.getRole();
     const loggedIn = this.authService.isLoggedIn();
-    console.log('can activate', loggedIn);
 
     // extract the base URL
     const baseUrl = state.url.split('?')[0];
@@ -51,6 +50,18 @@ export class AuthGuard implements CanActivate {
         this.router.navigate(['/user']);
       }
       // block access to login
+      return false;
+    }
+
+    if (state.url === '/create-task') {
+      return true;
+    }
+
+    if (baseUrl.startsWith('/edit-task/')) {
+      // allow access to create-task page for both admins and users
+      if (requiredRoles && requiredRoles.includes(userRole)) {
+        return true;
+      }
       return false;
     }
 

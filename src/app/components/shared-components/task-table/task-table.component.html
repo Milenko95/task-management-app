@@ -1,0 +1,42 @@
+<table>
+  <input type="text" placeholder="Filter..." (input)="onFilter($event)" />
+  <thead>
+    <tr>
+      <th *ngFor="let column of tableColumns" (click)="onSort(column.field)">
+        {{ column.header }}
+
+        <span *ngIf="sortColumn === column.field">
+          {{ sortDirection === "asc" ? "▲" : "▼" }}
+        </span>
+      </th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of paginatedData">
+      <td *ngFor="let column of tableColumns">
+        {{ row[column.field] }}
+      </td>
+      <td>
+        <!-- edit and delete -->
+        <button
+          [disabled]="(row.createdBy !== currentUser) && currentUserRole !== 'Admin'"
+          (click)="onEdit(row.id)"
+        >
+          Edit
+        </button>
+        <button
+          [disabled]="(row.createdBy !== currentUser) && currentUserRole !== 'Admin'"
+          (click)="onDelete(row.id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <div class="pagination">
+    <button *ngFor="let page of pages" (click)="onPageChange(page)">
+      {{ page }}
+    </button>
+  </div>
+</table>

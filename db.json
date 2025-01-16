@@ -3,40 +3,32 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "admin",
+      "password": "test",
       "role": "Admin"
     },
     {
       "id": "2",
       "username": "user1",
-      "password": "user1",
+      "password": "test",
       "role": "User"
     },
     {
       "id": "3",
       "username": "user2",
-      "password": "user2",
+      "password": "test",
       "role": "User"
     }
   ],
   "tasks": [
     {
-      "id": "1",
-      "title": "task 1",
-      "description": "description 1.",
-      "assignedTo": null
-    },
-    {
-      "id": "2",
-      "title": "task 2",
-      "description": "description 2.",
-      "assignedTo": null
-    },
-    {
-      "id": "3",
-      "title": "task 3",
-      "description": "description 3.",
-      "assignedTo": null
+      "id": "5858",
+      "title": "task1",
+      "description": "test",
+      "deadline": "2025-01-26",
+      "category": "Work",
+      "priority": "Medium",
+      "status": "In Progress",
+      "createdBy": "2"
     }
   ]
 }
