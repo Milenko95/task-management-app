@@ -59,9 +59,16 @@ h4 {
   font-style: italic;
 }
 
+.task-details.deadline {
+  .task-label,
+  .task-value {
+    color: #e60000;
+  }
+}
+
 /* Styling for status notification */
 .status-notification .task-item {
-  border-left: 5px solid #28a745; /* Green border for status updates */
+  border-left: 5px solid #28a745;
 }
 
 .status-notification .task-label {
@@ -74,7 +81,7 @@ h4 {
 
 /* Styling for assignment notification */
 .assignment-notification .task-item {
-  border-left: 5px solid #ffc107; /* Yellow border for assignment updates */
+  border-left: 5px solid #ffc107; 
 }
 
 .assignment-notification .task-label {

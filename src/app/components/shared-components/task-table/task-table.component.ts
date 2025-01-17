@@ -1,8 +1,10 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,9 +18,12 @@ import { SharedService } from 'src/app/services/shared/shared.service';
   styleUrls: ['./task-table.component.scss'],
 })
 export class TaskTableComponent implements OnChanges, OnInit {
+  @Input() tasks: Task[] = [];
+  @Output() taskUpdated: EventEmitter<void> = new EventEmitter();
+  
   currentUser: any;
   currentUserRole: any;
-  @Input() tasks: Task[] = [];
+  
   filterText: string = '';
   filteredTasks: Task[] = [];
   pageSize: number = 10;
@@ -115,6 +120,7 @@ export class TaskTableComponent implements OnChanges, OnInit {
       this.sharedService.updateTask(taskId, taskToUpdate).subscribe({
         next: (updatedTask) => {
           console.log(`Task ${taskToUpdate.title} updated with new status: ${newStatus}`);
+          this.taskUpdated.emit();
         },
         error: (err) => {
           console.error(`Error updating task status`, err);
@@ -136,6 +142,7 @@ export class TaskTableComponent implements OnChanges, OnInit {
       this.sharedService.deleteTask(taskId).subscribe(
         () => {
           this.tasks = this.tasks.filter((task) => task.id !== taskId);
+          this.taskUpdated.emit();
           // this.paginatedData = this.paginatedData.filter((task) => task.id !== taskId);
         },
         (error) => {

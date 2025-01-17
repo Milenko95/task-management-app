@@ -21,94 +21,17 @@
   ],
   "tasks": [
     {
-      "title": "t01",
-      "description": "ssss",
-      "deadline": "2025-01-19",
-      "category": "Work",
-      "priority": "High",
-      "assignedTo": "1",
-      "status": "In Progress",
-      "createdBy": "0",
-      "id": "2a9d",
-      "isUserNotified": true
-    },
-    {
-      "id": "7653",
+      "id": "0e91",
       "title": "task1",
       "description": "test",
       "deadline": "2025-01-18",
       "category": "Work",
-      "priority": "High",
-      "assignedTo": "1",
-      "status": "Completed",
-      "createdBy": "0",
-      "isUserNotified": true,
-      "statusHasChanged": false
-    },
-    {
-      "id": "2bca",
-      "title": "task2",
-      "description": "test",
-      "deadline": "2025-01-25",
-      "category": "Personal",
       "priority": "Medium",
       "assignedTo": "1",
       "status": "Pending",
       "createdBy": "0",
       "isUserNotified": true,
-      "statusHasChanged": false
-    },
-    {
-      "id": "6fb8",
-      "title": "task3",
-      "description": "test",
-      "deadline": "2025-01-26",
-      "category": "Personal",
-      "priority": "Low",
-      "assignedTo": "1",
-      "status": "In Progress",
-      "createdBy": "0",
-      "isUserNotified": true,
-      "statusHasChanged": false
-    },
-    {
-      "id": "4d59",
-      "title": "frontend",
-      "description": "test",
-      "deadline": "2025-01-18",
-      "category": "Work",
-      "priority": "Medium",
-      "assignedTo": "1",
-      "status": "In Progress",
-      "createdBy": "2",
-      "isUserNotified": true,
-      "statusHasChanged": false
-    },
-    {
-      "id": "33b8",
-      "title": "frontend",
-      "description": "test",
-      "deadline": "2025-01-19",
-      "category": "Other",
-      "priority": "Medium",
-      "assignedTo": "1",
-      "status": "Completed",
-      "createdBy": "2",
-      "isUserNotified": true,
-      "statusHasChanged": false
-    },
-    {
-      "id": "1826",
-      "title": "backend",
-      "description": "test",
-      "deadline": "2025-01-19",
-      "category": "Personal",
-      "priority": "Low",
-      "assignedTo": "2",
-      "status": "Completed",
-      "createdBy": "1",
-      "isUserNotified": true,
-      "statusHasChanged": false
+      "statusHasChanged": true
     }
   ]
 }

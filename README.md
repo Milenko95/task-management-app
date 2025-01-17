@@ -4,7 +4,7 @@
 
 1. clone git repository
 2. install dependencies: npm install
-3. star JSON server (Mock API): npm run start:mock-api
+3. start JSON server (Mock API): npm run start:mock-api
 - JSON server endpoints:
 - http://localhost:3000/users
 - http://localhost:3000/tasks
@@ -30,7 +30,8 @@ Notes:
 - login or reload Admin page to receive notifications for status changes (if any were made)
 - login or reload User page to receive notifications for new tasks assigned to current user (ex. user1)
 - User can only edit and delete tasks that he created and only update statuses on tasks assigned to him
-- Admin can edit and delete all tasks    
+- Admin can edit and delete all tasks   
+- If user is assigned a task with deadline on next day, he will receive notification every 5 seconds until status is changed to completed
 
 ## Technologies used
 

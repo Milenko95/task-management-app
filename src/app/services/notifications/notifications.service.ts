@@ -26,6 +26,13 @@ export class NotificationService {
     this.notificationsSubject.next(notification);
   }
 
+  showDeadlineApproachingNotification(tasks: any[]): void {
+    const taskTitles = tasks.map((task) => task.title).join(', ');
+    const message = `Tasks approaching deadline: ${taskTitles}`;
+    const notification: CustomNotification = { type: 'deadline', message, tasks };
+    this.notificationsSubject.next(notification);
+  }
+
   // clear the notification
   clearNotification(): void {
     this.notificationsSubject.next(null);

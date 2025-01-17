@@ -34,6 +34,19 @@
       </div>
     </div>
 
+     <!-- assignment notification -->
+     <div *ngIf="notification.type === 'deadline'" class="task-list">
+      <div class="task-item" *ngFor="let task of notification.tasks">
+        <div class="task-header">
+          <strong>{{ task.title }}</strong>
+        </div>
+        <div class="task-details deadline">
+          <div class="task-label">Priority:</div>
+          <div class="task-value">{{ task.priority }}</div>
+        </div>
+      </div>
+    </div>
+
     <button class="dismiss-btn" (click)="dismissNotification()">X</button>
   </div>
 </div>
