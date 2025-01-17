@@ -108,7 +108,9 @@ export class TaskTableComponent implements OnChanges, OnInit {
       taskToUpdate.status = newStatus;
 
       // only update status if task is completed
-      taskToUpdate.statusHasChanged = newStatus === 'Completed';
+      // taskToUpdate.statusHasChanged = newStatus === 'Completed';
+      taskToUpdate.statusHasChanged = true;
+
       
       this.sharedService.updateTask(taskId, taskToUpdate).subscribe({
         next: (updatedTask) => {

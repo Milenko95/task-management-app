@@ -43,12 +43,12 @@ export class AdminComponent implements OnInit {
     const statusChangedTasks: any[] = [];
 
     tasks.forEach((task) => {
-      // check if the task is created by the current user - admin and statusHasChanged is true
-      if (task.createdBy === this.currentUser && task.statusHasChanged) {
+      // check if task status changed and send notificaiton to admin
+      if (task.statusHasChanged) {
         statusChangedTasks.push({ title: task.title, status: task.status });
 
         // reset statusHasChanged after notifying
-        // task.statusHasChanged = false;
+        task.statusHasChanged = false;
 
         // update the task's statusHasChanged
         this.sharedService.updateTask(task.id, task).subscribe({

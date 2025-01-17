@@ -47,7 +47,7 @@ export class UserComponent {
       if (task.assignedTo === this.currentUser && !task.isUserNotified) {
         newTasks.push({ title: task.title, priority: task.priority });
 
-        // task.isUserNotified = true;
+        task.isUserNotified = true;
 
         this.sharedService.updateTask(task.id, task).subscribe({
           next: () =>
