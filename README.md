@@ -5,19 +5,19 @@
 1. clone git repository
 2. install dependencies: npm install
 3. star JSON server (Mock API): npm run start:mock-api
-    JSON server endpoints:
-        http://localhost:3000/users
-        http://localhost:3000/tasks
+- JSON server endpoints:
+- http://localhost:3000/users
+- http://localhost:3000/tasks
 4. run Angular app: ng serve
 5. login credentials (can be found on http://localhost:3000/users):
-    username: admin
-    password: test
-
-    username: user1
-    password: test
-
-    username: user2
-    password: test
+- username: admin
+- password: test
+- 
+- username: user1
+- password: test
+- 
+- username: user2
+- password: test
 
 ## Features
 - View, filter, and sort tasks.
