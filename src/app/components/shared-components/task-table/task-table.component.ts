@@ -50,8 +50,10 @@ export class TaskTableComponent implements OnChanges, OnInit {
     { header: 'Due date', field: 'deadline' },
     { header: 'Created By', field: 'createdBy' },
     { header: 'Assigned To', field: 'assignedTo' },
-    { header: 'State', field: 'status' },
+    // { header: 'Status', field: 'status' },
   ];
+
+  statusOptions = ['Pending', 'In Progress', 'Completed'];
 
   sortColumn: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
@@ -98,6 +100,27 @@ export class TaskTableComponent implements OnChanges, OnInit {
   onPageChange(page: number): void {
     this.currentPage = page;
   }
+
+  // handle status change
+  onStatusChange(taskId: string, newStatus: string): void {
+    const taskToUpdate = this.paginatedData.find((task) => task.id === taskId);
+    if (taskToUpdate) {
+      taskToUpdate.status = newStatus;
+
+      // only update status if task is completed
+      taskToUpdate.statusHasChanged = newStatus === 'Completed';
+      
+      this.sharedService.updateTask(taskId, taskToUpdate).subscribe({
+        next: (updatedTask) => {
+          console.log(`Task ${taskToUpdate.title} updated with new status: ${newStatus}`);
+        },
+        error: (err) => {
+          console.error(`Error updating task status`, err);
+        },
+      });
+    }
+  }
+
 
   onEdit(taskId: string): void {
     this.router.navigate(['/edit-task', taskId]);

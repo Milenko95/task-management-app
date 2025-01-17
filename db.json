@@ -1,19 +1,19 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": "0",
       "username": "admin",
       "password": "test",
       "role": "Admin"
     },
     {
-      "id": "2",
+      "id": "1",
       "username": "user1",
       "password": "test",
       "role": "User"
     },
     {
-      "id": "3",
+      "id": "2",
       "username": "user2",
       "password": "test",
       "role": "User"
@@ -21,14 +21,16 @@
   ],
   "tasks": [
     {
-      "id": "5858",
-      "title": "task1",
-      "description": "test",
-      "deadline": "2025-01-26",
+      "id": "2a9d",
+      "title": "t01",
+      "description": "ssss",
+      "deadline": "2025-01-19",
       "category": "Work",
-      "priority": "Medium",
-      "status": "In Progress",
-      "createdBy": "2"
+      "priority": "High",
+      "assignedTo": "1",
+      "status": "Completed",
+      "createdBy": "0",
+      "statusHasChanged": true
     }
   ]
 }

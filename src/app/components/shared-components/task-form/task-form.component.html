@@ -64,6 +64,18 @@
         <div *ngIf="taskForm.controls['priority'].hasError('required')">Priority is required.</div>
       </div>
     </div>
+
+    <div class="form-group">
+      <label for="assignedTo">Assigned To</label>
+      <select id="assignedTo" formControlName="assignedTo" class="form-control">
+        <option value="">Select User</option>
+        <option value="1">user1</option>
+        <option value="2">user2</option>
+      </select>
+      <div *ngIf="taskForm.controls['assignedTo'].touched && taskForm.controls['assignedTo'].invalid" class="text-danger">
+        <div *ngIf="taskForm.controls['assignedTo'].hasError('required')">Assignment is required.</div>
+      </div>
+    </div>
   
     <div class="form-group">
       <label for="status">Status</label>

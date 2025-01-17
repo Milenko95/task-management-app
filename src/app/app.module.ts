@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TaskTableComponent } from './components/shared-components/task-table/task-table.component';
 import { EditTaskComponent } from './components/shared-components/edit-task/edit-task.component';
 import { TaskFormComponent } from './components/shared-components/task-form/task-form.component';
+import { NotificationComponent } from './components/shared-components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TaskFormComponent } from './components/shared-components/task-form/task
     CreateTaskComponent,
     TaskTableComponent,
     EditTaskComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

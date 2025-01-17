@@ -11,10 +11,7 @@ import { Task } from 'src/app/models/task.model';
 export class SharedService {
   private apiUrl = `${environment.apiUrl}/tasks`;
 
-  constructor(
-    private http: HttpClient,
-    private authService: AuthService 
-  ) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getAllTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.apiUrl);
@@ -24,12 +21,12 @@ export class SharedService {
   getTaskById(taskId: string): Observable<Task | undefined> {
     return this.http.get<Task[]>(`${this.apiUrl}`).pipe(
       map((tasks) => {
-        return tasks.find((task) => task.id === taskId); 
+        return tasks.find((task) => task.id === taskId);
       })
     );
   }
 
-  // create a new task 
+  // create a new task
   createTask(task: Task): Observable<Task> {
     const currentUser = this.authService.getCurrentUser();
     if (currentUser) {
@@ -40,16 +37,6 @@ export class SharedService {
 
   // update an existing task - only available for the user who created the task
   updateTask(id: string, task: Task): Observable<Task> {
-    const currentUser = this.authService.getCurrentUser();
-    const currentUserRole = this.authService.getRole();
-
-    if (
-      currentUser &&
-      task.createdBy !== currentUser &&
-      currentUserRole !== 'Admin'
-    ) {
-      throw new Error('You can only edit tasks you created');
-    }
     return this.http.put<Task>(`${this.apiUrl}/${id}`, task);
   }
 

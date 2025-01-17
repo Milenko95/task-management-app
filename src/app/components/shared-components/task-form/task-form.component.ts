@@ -26,12 +26,12 @@ export class TaskFormComponent implements OnInit {
 
     // initialize form group with form controls and validation
     this.taskForm = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.minLength(4)]],
-      description: ['', [Validators.required, Validators.minLength(4)]],
+      title: ['', [Validators.required, Validators.minLength(3)]],
+      description: ['', [Validators.required, Validators.minLength(3)]],
       deadline: ['', Validators.required],
       category: ['', Validators.required],
-
       priority: ['', Validators.required],
+      assignedTo: ['', Validators.required],
       status: ['', Validators.required],
     });
 
@@ -42,6 +42,7 @@ export class TaskFormComponent implements OnInit {
         deadline: this.task.deadline,
         category: this.task.category,
         priority: this.task.priority,
+        assignedTo: this.task.assignedTo,
         status: this.task.status,
       });
     }
@@ -62,6 +63,7 @@ export class TaskFormComponent implements OnInit {
     const task: Task = {
       ...this.taskForm.value,
       createdBy: this.task ? this.task.createdBy : this.currentUser.id,
+      // isUserNotified: this.task ? this.task.isUserNotified : false,
       id: this.task?.id,
     };
 

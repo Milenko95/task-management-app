@@ -9,6 +9,7 @@
           {{ sortDirection === "asc" ? "▲" : "▼" }}
         </span>
       </th>
+      <th>Status</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -17,8 +18,23 @@
       <td *ngFor="let column of tableColumns">
         {{ row[column.field] }}
       </td>
+
+      <!-- change status column -->
       <td>
-        <!-- edit and delete -->
+        <!-- display a dropdown for status if the current user is assigned to the task -->
+        <select
+          *ngIf="row.assignedTo === currentUser"
+          [(ngModel)]="row.status"
+          (change)="onStatusChange(row.id, row.status)"
+        >
+          <option *ngFor="let status of statusOptions" [value]="status">
+            {{ status }}
+          </option>
+        </select>
+        <span *ngIf="row.assignedTo !== currentUser">{{ row.status }}</span>
+      </td>
+      <td>
+        <!-- edit and delete buttons -->
         <button
           [disabled]="(row.createdBy !== currentUser) && currentUserRole !== 'Admin'"
           (click)="onEdit(row.id)"

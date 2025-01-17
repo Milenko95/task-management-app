@@ -7,5 +7,7 @@ export interface Task {
     status: string,
     category: string,
     assignedTo: string,
-    createdBy: string
+    createdBy: string,
+    isUserNotified: boolean,
+    statusHasChanged: boolean
 }
