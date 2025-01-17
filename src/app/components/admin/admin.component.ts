@@ -23,10 +23,13 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
+    this.loadTasks();
+  }
+
+  loadTasks(): void {
     this.sharedService.getAllTasks().subscribe(
       (tasks) => {
         this.tasks = tasks;
-
         if (this.currentUser) {
           this.checkAndNotifyUserTasks(tasks);
         }
@@ -37,9 +40,11 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  checkAndNotifyUserTasks(tasks: Task[]): void {
-    console.log('check and notift');
+  onTaskUpdated(): void {
+    this.loadTasks();
+  }
 
+  checkAndNotifyUserTasks(tasks: Task[]): void {
     const statusChangedTasks: any[] = [];
 
     tasks.forEach((task) => {

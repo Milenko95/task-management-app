@@ -15,6 +15,8 @@ export class UserComponent {
   tasks: Task[] = [];
   currentUser: any;
 
+  private deadlineNotificationInterval: any;
+
   constructor(
     private authService: AuthService,
     private sharedService: SharedService,
@@ -24,7 +26,10 @@ export class UserComponent {
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
+    this.loadTasks();
+  }
 
+  loadTasks(): void {
     this.sharedService.getAllTasks().subscribe(
       (tasks) => {
         this.tasks = tasks;
@@ -39,7 +44,50 @@ export class UserComponent {
     );
   }
 
+  onTaskUpdated(): void {
+    this.loadTasks();
+  }
+
   checkAndNotifyUserTasks(tasks: Task[]): void {
+    const tasksApproachingDeadline: Task[] = [];
+    const now = new Date();
+
+    // filter tasks that are approaching the deadline
+    tasks.forEach((task) => {
+      const deadline = new Date(task.deadline);
+      const timeDiff = deadline.getTime() - now.getTime();
+      const daysLeft = timeDiff / (1000 * 3600 * 24); // Convert timeDiff from ms to days
+
+      // if task deadline is within 2 days and task is assigned to the current user
+      if (
+        task.assignedTo === this.currentUser &&
+        daysLeft <= 2 &&
+        daysLeft > 0 &&
+        task.status !== 'Completed'
+      ) {
+        tasksApproachingDeadline.push(task);
+      }
+    });
+
+    // if there are tasks approaching their deadline, show the notification every 5 seconds
+    if (tasksApproachingDeadline.length > 0) {
+      if (this.deadlineNotificationInterval) {
+        clearInterval(this.deadlineNotificationInterval);
+      }
+
+      // show repeated notification every 5 seconds
+      this.deadlineNotificationInterval = setInterval(() => {
+        this.notificationService.showDeadlineApproachingNotification(
+          tasksApproachingDeadline
+        );
+      }, 5000);
+    } else {
+      if (this.deadlineNotificationInterval) {
+        clearInterval(this.deadlineNotificationInterval);
+      }
+      this.notificationService.clearNotification();
+    }
+
     const newTasks: any[] = [];
 
     tasks.forEach((task) => {

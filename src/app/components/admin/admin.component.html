@@ -1,3 +1,1 @@
-<div>
-  <task-table [tasks]="tasks"></task-table>
-</div>
+<task-table (taskUpdated)="onTaskUpdated()" [tasks]="tasks"></task-table>
