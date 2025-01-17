@@ -27,10 +27,10 @@
 - User login (Admin and User roles).
 
 Notes:
-    - login or reload Admin page to receive notifications for status changes (if any were made)
-    - login or reload User page to receive notifications for new tasks assigned to current user (ex. user1)
-    - User can only edit and delete tasks that he created and only update statuses on tasks assigned to him
-    - Admin can edit and delete all tasks    
+- login or reload Admin page to receive notifications for status changes (if any were made)
+- login or reload User page to receive notifications for new tasks assigned to current user (ex. user1)
+- User can only edit and delete tasks that he created and only update statuses on tasks assigned to him
+- Admin can edit and delete all tasks    
 
 ## Technologies used
 
