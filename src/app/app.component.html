@@ -1,4 +1,6 @@
-<h3>Task management</h3>
-<button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+<div *ngIf="isLoggedIn" class="header">
+  <h2>{{ userRole }} Dashboard</h2>
+  <button (click)="logout()">Logout</button>
+</div>
 <app-notification></app-notification>
 <router-outlet></router-outlet>

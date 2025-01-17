@@ -1,4 +1,5 @@
 <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <div class="form-container">
     <div class="form-group">
       <label for="title">Title</label>
       <input
@@ -7,12 +8,22 @@
         formControlName="title"
         class="form-control"
       />
-      <div *ngIf="taskForm.controls['title'].touched && taskForm.controls['title'].invalid" class="text-danger">
-        <div *ngIf="taskForm.controls['title'].hasError('required')">Title is required.</div>
-        <div *ngIf="taskForm.controls['title'].hasError('minlength')">Title must be at least 3 characters long.</div>
+      <div
+        *ngIf="
+          taskForm.controls['title'].touched &&
+          taskForm.controls['title'].invalid
+        "
+        class="text-danger"
+      >
+        <div *ngIf="taskForm.controls['title'].hasError('required')">
+          Title is required.
+        </div>
+        <div *ngIf="taskForm.controls['title'].hasError('minlength')">
+          Title must be at least 3 characters long.
+        </div>
       </div>
     </div>
-  
+
     <div class="form-group">
       <label for="description">Description</label>
       <textarea
@@ -20,12 +31,22 @@
         formControlName="description"
         class="form-control"
       ></textarea>
-      <div *ngIf="taskForm.controls['description'].touched && taskForm.controls['description'].invalid" class="text-danger">
-        <div *ngIf="taskForm.controls['description'].hasError('required')">Description is required.</div>
-        <div *ngIf="taskForm.controls['description'].hasError('minlength')">Description must be at least 10 characters long.</div>
+      <div
+        *ngIf="
+          taskForm.controls['description'].touched &&
+          taskForm.controls['description'].invalid
+        "
+        class="text-danger"
+      >
+        <div *ngIf="taskForm.controls['description'].hasError('required')">
+          Description is required.
+        </div>
+        <div *ngIf="taskForm.controls['description'].hasError('minlength')">
+          Description must be at least 10 characters long.
+        </div>
       </div>
     </div>
-  
+
     <div class="form-group">
       <label for="deadline">Deadline</label>
       <input
@@ -34,11 +55,19 @@
         formControlName="deadline"
         class="form-control"
       />
-      <div *ngIf="taskForm.controls['deadline'].touched && taskForm.controls['deadline'].invalid" class="text-danger">
-        <div *ngIf="taskForm.controls['deadline'].hasError('required')">Deadline is required.</div>
+      <div
+        *ngIf="
+          taskForm.controls['deadline'].touched &&
+          taskForm.controls['deadline'].invalid
+        "
+        class="text-danger"
+      >
+        <div *ngIf="taskForm.controls['deadline'].hasError('required')">
+          Deadline is required.
+        </div>
       </div>
     </div>
-  
+
     <div class="form-group">
       <label for="category">Category</label>
       <select id="category" formControlName="category" class="form-control">
@@ -47,11 +76,19 @@
         <option value="Personal">Personal</option>
         <option value="Other">Other</option>
       </select>
-      <div *ngIf="taskForm.controls['category'].touched && taskForm.controls['category'].invalid" class="text-danger">
-        <div *ngIf="taskForm.controls['category'].hasError('required')">Category is required.</div>
+      <div
+        *ngIf="
+          taskForm.controls['category'].touched &&
+          taskForm.controls['category'].invalid
+        "
+        class="text-danger"
+      >
+        <div *ngIf="taskForm.controls['category'].hasError('required')">
+          Category is required.
+        </div>
       </div>
     </div>
-  
+
     <div class="form-group">
       <label for="priority">Priority</label>
       <select id="priority" formControlName="priority" class="form-control">
@@ -60,8 +97,16 @@
         <option value="Medium">Medium</option>
         <option value="High">High</option>
       </select>
-      <div *ngIf="taskForm.controls['priority'].touched && taskForm.controls['priority'].invalid" class="text-danger">
-        <div *ngIf="taskForm.controls['priority'].hasError('required')">Priority is required.</div>
+      <div
+        *ngIf="
+          taskForm.controls['priority'].touched &&
+          taskForm.controls['priority'].invalid
+        "
+        class="text-danger"
+      >
+        <div *ngIf="taskForm.controls['priority'].hasError('required')">
+          Priority is required.
+        </div>
       </div>
     </div>
 
@@ -72,11 +117,19 @@
         <option value="1">user1</option>
         <option value="2">user2</option>
       </select>
-      <div *ngIf="taskForm.controls['assignedTo'].touched && taskForm.controls['assignedTo'].invalid" class="text-danger">
-        <div *ngIf="taskForm.controls['assignedTo'].hasError('required')">Assignment is required.</div>
+      <div
+        *ngIf="
+          taskForm.controls['assignedTo'].touched &&
+          taskForm.controls['assignedTo'].invalid
+        "
+        class="text-danger"
+      >
+        <div *ngIf="taskForm.controls['assignedTo'].hasError('required')">
+          Assignment is required.
+        </div>
       </div>
     </div>
-  
+
     <div class="form-group">
       <label for="status">Status</label>
       <select id="status" formControlName="status" class="form-control">
@@ -85,11 +138,21 @@
         <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
       </select>
-      <div *ngIf="taskForm.controls['status'].touched && taskForm.controls['status'].invalid" class="text-danger">
-        <div *ngIf="taskForm.controls['status'].hasError('required')">Status is required.</div>
+      <div
+        *ngIf="
+          taskForm.controls['status'].touched &&
+          taskForm.controls['status'].invalid
+        "
+        class="text-danger"
+      >
+        <div *ngIf="taskForm.controls['status'].hasError('required')">
+          Status is required.
+        </div>
       </div>
     </div>
-  
-    <button type="submit" [disabled]="taskForm.invalid" class="btn btn-primary">Save Task</button>
-  </form>
-  
+
+    <button type="submit" [disabled]="taskForm.invalid" class="btn btn-primary">
+      Save Task
+    </button>
+  </div>
+</form>

@@ -13,6 +13,10 @@ export class AppComponent {
     return this.authService.isLoggedIn();
   }
 
+  get userRole() {
+    return this.authService.getRole();
+  }
+
   logout() {
     this.authService.logout();
   }

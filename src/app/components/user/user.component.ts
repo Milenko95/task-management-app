@@ -62,8 +62,4 @@ export class UserComponent {
       this.notificationService.showNewAssignmentNotification(newTasks);
     }
   }
-
-  onCreateNewTask(): void {
-    this.router.navigate(['/create-task']);
-  }
 }

@@ -121,7 +121,10 @@ export class TaskTableComponent implements OnChanges, OnInit {
     }
   }
 
-
+  onCreateNewTask(): void {
+    this.router.navigate(['/create-task']);
+  }
+  
   onEdit(taskId: string): void {
     this.router.navigate(['/edit-task', taskId]);
   }

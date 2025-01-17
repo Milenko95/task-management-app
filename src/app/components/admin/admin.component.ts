@@ -67,8 +67,4 @@ export class AdminComponent implements OnInit {
       this.notificationService.showStatusNotification(statusChangedTasks);
     }
   }
-
-  onCreateNewTask(): void {
-    this.router.navigate(['/create-task']);
-  }
 }
