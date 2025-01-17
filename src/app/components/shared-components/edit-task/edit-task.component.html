@@ -1,0 +1,9 @@
+<div class="edit-task-container">
+  <h3>Edit Task</h3>
+  <div *ngIf="taskLoaded">
+    <app-task-form
+    [task]="task"
+    (submitForm)="onEditTask($event)"
+    ></app-task-form>
+  </div>
+</div>

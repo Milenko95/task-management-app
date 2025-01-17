@@ -1,27 +1,46 @@
 # TaskManagementApp
 
+## Steps to start the app
+
+1. clone git repository
+2. install dependencies: npm install
+3. star JSON server (Mock API): npm run start:mock-api
+    JSON server endpoints:
+        http://localhost:3000/users
+        http://localhost:3000/tasks
+4. run Angular app: ng serve
+5. login credentials (can be found on http://localhost:3000/users):
+    username: admin
+    password: test
+
+    username: user1
+    password: test
+
+    username: user2
+    password: test
+
+## Features
+- View, filter, and sort tasks.
+- Create, edit, delete tasks.
+- Change task status (Pending, In Progress, Completed).
+- Receive notifications about assigned tasks and updated statuses.
+- User login (Admin and User roles).
+
+Notes:
+- login or reload Admin page to receive notifications for status changes (if any were made)
+- login or reload User page to receive notifications for new tasks assigned to current user (ex. user1)
+- User can only edit and delete tasks that he created and only update statuses on tasks assigned to him
+- Admin can edit and delete all tasks    
+
+## Technologies used
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+Node: 18.20.5
+Package Manager: npm 10.8.2
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,0 +1,89 @@
+/* Container for the form */
+.form-container {
+    max-width: 550px;
+    margin: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  /* Form group styling */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+  
+  /* Form control styling (input, select, textarea) */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Input focus */
+  .form-control:focus {
+    outline: none;
+    border-color: #0073e6; 
+  }
+  
+  /* Error message styling */
+  .text-danger {
+    font-size: 12px;
+    color: #e74c3c; /* Red color */
+  }
+  
+  /* Button styling */
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  button:disabled {
+    background-color: #d6d6d6;
+    cursor: not-allowed;
+  }
+  
+  /* Error message inside form groups */
+  .form-group .text-danger {
+    margin-top: 5px;
+  }
+  
+  /* Styling for select elements */
+  select.form-control {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+  }
+  
+  /* Textarea styling */
+  textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* Add margin to the submit button */
+  button[type="submit"] {
+    margin-top: 20px;
+  }
+  

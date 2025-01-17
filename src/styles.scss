@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #f2f5f7;
+} 
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  
+ button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+ button:disabled {
+    background-color: #d6d6d6;
+    cursor: not-allowed;
+  }
+  
+  /* Make the Delete button red */
+   button.logout {
+    background-color: #e74c3c; /* Red */
+  }
+  
+ button.delete:hover {
+    background-color: #c0392b; /* Darker red on hover */
+  }

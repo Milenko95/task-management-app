@@ -1,0 +1,103 @@
+.notification-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 350px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #333;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-header {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.task-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-label {
+  font-weight: bold;
+  color: #555;
+}
+
+.task-value {
+  color: #333;
+  font-style: italic;
+}
+
+/* Styling for status notification */
+.status-notification .task-item {
+  border-left: 5px solid #28a745; /* Green border for status updates */
+}
+
+.status-notification .task-label {
+  color: #28a745;
+}
+
+.status-notification .task-value {
+  color: #28a745;
+}
+
+/* Styling for assignment notification */
+.assignment-notification .task-item {
+  border-left: 5px solid #ffc107; /* Yellow border for assignment updates */
+}
+
+.assignment-notification .task-label {
+  color: #ffc107;
+}
+
+.assignment-notification .task-value {
+  color: #ffc107;
+}
+
+.dismiss-btn {
+  background-color: lightgray;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.dismiss-btn:hover {
+  background-color: #e60000;
+}

@@ -1,0 +1,114 @@
+/* Center the login form */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  height: 100vh;
+  background-color: #f4f7fa; /* Light background */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.login-title {
+  font-family: "Arial", sans-serif;
+  color: #0073e6;
+
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form container */
+form {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-family: "Arial", sans-serif;
+
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+/* Form control styling */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0073e6;
+}
+
+/* Error message styling */
+.error {
+  font-size: 12px;
+  color: #e74c3c;
+  margin-top: 5px;
+}
+
+/* Button styling */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #d6d6d6;
+  cursor: not-allowed;
+}
+
+/* Error message for the entire form */
+.error-message {
+  font-size: 14px;
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 20px;
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 8px 16px;
+  }
+}
